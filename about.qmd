@@ -17,3 +17,5 @@ about:
 ---
 
 About this blog
+
+Hello! I am Yash Gupta aka boi-doingthings. I am interested in using Data Science to solve business problems.

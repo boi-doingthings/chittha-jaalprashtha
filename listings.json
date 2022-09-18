@@ -2,8 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/pytorch-part1/index.html",
       "/posts/sample-test/index.html",
+      "/posts/pytorch-dataloaders/index.html",
+      "/posts/pytorch-part1/index.html",
       "/posts/places_visit/index.html"
     ]
   }

@@ -214,6 +214,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <ul class="collapse">
   <li><a href="#train-1" id="toc-train-1" class="nav-link" data-scroll-target="#train-1">Train</a></li>
   </ul></li>
+  <li><a href="#apply-target-transform" id="toc-apply-target-transform" class="nav-link" data-scroll-target="#apply-target-transform">Apply target transform</a></li>
   </ul>
 </nav>
     </div>
@@ -342,50 +343,145 @@ Test: /home/boi-doingthings/Documents/datasets/child_or_adult/test/</code></pre>
 </section>
 <section id="apply-transforms" class="level1">
 <h1>Apply Transforms</h1>
-<div class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision.transforms <span class="im">import</span> ToTensor, Compose</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform(image):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> Compose([ToTensor()])</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a(image.permute(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>).numpy())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision.transforms <span class="im">import</span> ToTensor</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> transform(image):</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    a <span class="op">=</span> ToTensor()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="87">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> target_transform(label):</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="cf">if</span> label<span class="op">==</span><span class="st">'adults'</span> <span class="cf">else</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> target_transform(label):</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="dv">1</span> <span class="cf">if</span> label<span class="op">==</span><span class="st">'adult'</span> <span class="cf">else</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CvA_Dataset_with_Transforms(Dataset):</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,labels,files,transform,target_transform):</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.labels <span class="op">=</span> labels</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.files <span class="op">=</span> files</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.transform <span class="op">=</span> transform</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.target_transform <span class="op">=</span> target_transform</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.files)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,idx):</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> read_image(<span class="va">self</span>.files[idx])</span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> <span class="va">self</span>.transform(image)</span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="va">self</span>.target_transform(<span class="va">self</span>.labels[idx])</span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> image,label</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> CvA_Dataset_with_Transforms(Dataset):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>,labels,files,transform,target_transform):</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.labels <span class="op">=</span> labels</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.files <span class="op">=</span> files</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.transform <span class="op">=</span> transform</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.target_transform <span class="op">=</span> target_transform</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__len__</span>(<span class="va">self</span>):</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">len</span>(<span class="va">self</span>.files)</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__getitem__</span>(<span class="va">self</span>,idx):</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> read_image(<span class="va">self</span>.files[idx])</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>        image <span class="op">=</span> <span class="va">self</span>.transform(image)</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>        label <span class="op">=</span> <span class="va">self</span>.target_transform(<span class="va">self</span>.labels[idx])</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> image,label</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="train-1" class="level3">
 <h3 class="anchored" data-anchor-id="train-1">Train</h3>
-<div class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> CvA_Dataset_with_Transforms(train_files_labels,train_files_path,transform,target_transform)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="89">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> CvA_Dataset_with_Transforms(train_files_labels,train_files_path,transform,target_transform)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.imshow(train[101][0].permute(1,2,0))</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># print(train[101][1])</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>TypeError: ToTensor.__init__() takes 1 positional argument but 2 were given</code></pre>
-</div>
-</div>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>train[<span class="dv">101</span>][<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>tensor([[[0.4980, 0.5059, 0.5098,  ..., 0.6039, 0.6000, 0.5961],
+         [0.5020, 0.5098, 0.5137,  ..., 0.6039, 0.6000, 0.5961],
+         [0.5098, 0.5137, 0.5176,  ..., 0.6078, 0.6039, 0.6000],
+         ...,
+         [0.2745, 0.2824, 0.2863,  ..., 0.2235, 0.2157, 0.2078],
+         [0.2588, 0.2667, 0.2784,  ..., 0.2314, 0.2157, 0.2118],
+         [0.2627, 0.2667, 0.2824,  ..., 0.2157, 0.2078, 0.2000]],
 
+        [[0.6431, 0.6510, 0.6549,  ..., 0.7137, 0.7098, 0.7059],
+         [0.6471, 0.6549, 0.6588,  ..., 0.7137, 0.7098, 0.7059],
+         [0.6549, 0.6588, 0.6627,  ..., 0.7176, 0.7137, 0.7098],
+         ...,
+         [0.4000, 0.4078, 0.4118,  ..., 0.2235, 0.2118, 0.2039],
+         [0.3922, 0.4000, 0.4039,  ..., 0.2196, 0.2118, 0.2078],
+         [0.3961, 0.4000, 0.4078,  ..., 0.2039, 0.2039, 0.1961]],
 
+        [[0.7059, 0.7137, 0.7176,  ..., 0.7569, 0.7529, 0.7490],
+         [0.7098, 0.7176, 0.7216,  ..., 0.7569, 0.7529, 0.7490],
+         [0.7176, 0.7216, 0.7255,  ..., 0.7608, 0.7569, 0.7529],
+         ...,
+         [0.3961, 0.4039, 0.4078,  ..., 0.1922, 0.1961, 0.1882],
+         [0.3882, 0.3961, 0.4000,  ..., 0.1922, 0.1961, 0.1922],
+         [0.3922, 0.3961, 0.4039,  ..., 0.1765, 0.1882, 0.1804]]])</code></pre>
+</div>
+</div>
+<p>Now, the data is normalised. Thus, our transform worked.</p>
+<div class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(train[<span class="dv">101</span>][<span class="dv">0</span>].permute(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>))</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(train[<span class="dv">101</span>][<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="index_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>train[<span class="dv">101</span>][<span class="dv">0</span>].permute(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">0</span>).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>torch.Size([320, 370, 3])</code></pre>
+</div>
+</div>
 </section>
+</section>
+<section id="apply-target-transform" class="level1">
+<h1>Apply target transform</h1>
+<div class="cell" data-execution_count="93">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>train[<span class="dv">101</span>][<span class="dv">1</span>]<span class="dv">1</span> <span class="cf">if</span> label<span class="op">==</span><span class="st">'adult'</span> <span class="cf">else</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="93">
+<pre><code>1</code></pre>
+</div>
+</div>
+<p>The problem with the our target transform is we don’t get a vector output, that would be useful in training models.<br>
+Thus, we try to implement a Generic Transform</p>
+<div class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> torchvision.transforms <span class="im">import</span> Lambda</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> torch</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> target_transform(label):</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> label <span class="op">==</span> <span class="st">'adults'</span>:</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>        y<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> torch.zeros(<span class="dv">2</span>).scatter_(dim<span class="op">=</span><span class="dv">0</span>,value<span class="op">=</span><span class="dv">1</span>,index<span class="op">=</span>torch.tensor(y))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="100">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>train <span class="op">=</span> CvA_Dataset_with_Transforms(train_files_labels,train_files_path,transform,target_transform)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>train[<span class="dv">101</span>][<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>tensor([0., 1.])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>train[<span class="dv">101</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="102">
+<pre><code>(tensor([[[0.4980, 0.5059, 0.5098,  ..., 0.6039, 0.6000, 0.5961],
+          [0.5020, 0.5098, 0.5137,  ..., 0.6039, 0.6000, 0.5961],
+          [0.5098, 0.5137, 0.5176,  ..., 0.6078, 0.6039, 0.6000],
+          ...,
+          [0.2745, 0.2824, 0.2863,  ..., 0.2235, 0.2157, 0.2078],
+          [0.2588, 0.2667, 0.2784,  ..., 0.2314, 0.2157, 0.2118],
+          [0.2627, 0.2667, 0.2824,  ..., 0.2157, 0.2078, 0.2000]],
+ 
+         [[0.6431, 0.6510, 0.6549,  ..., 0.7137, 0.7098, 0.7059],
+          [0.6471, 0.6549, 0.6588,  ..., 0.7137, 0.7098, 0.7059],
+          [0.6549, 0.6588, 0.6627,  ..., 0.7176, 0.7137, 0.7098],
+          ...,
+          [0.4000, 0.4078, 0.4118,  ..., 0.2235, 0.2118, 0.2039],
+          [0.3922, 0.4000, 0.4039,  ..., 0.2196, 0.2118, 0.2078],
+          [0.3961, 0.4000, 0.4078,  ..., 0.2039, 0.2039, 0.1961]],
+ 
+         [[0.7059, 0.7137, 0.7176,  ..., 0.7569, 0.7529, 0.7490],
+          [0.7098, 0.7176, 0.7216,  ..., 0.7569, 0.7529, 0.7490],
+          [0.7176, 0.7216, 0.7255,  ..., 0.7608, 0.7569, 0.7529],
+          ...,
+          [0.3961, 0.4039, 0.4078,  ..., 0.1922, 0.1961, 0.1882],
+          [0.3882, 0.3961, 0.4000,  ..., 0.1922, 0.1961, 0.1922],
+          [0.3922, 0.3961, 0.4039,  ..., 0.1765, 0.1882, 0.1804]]]),
+ tensor([0., 1.]))</code></pre>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->

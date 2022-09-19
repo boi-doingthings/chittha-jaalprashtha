@@ -2,26 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/posts/pytorch-part1/index.html</loc>
-    <lastmod>2022-09-18T18:00:36.869Z</lastmod>
+    <lastmod>2022-09-19T18:27:24.644Z</lastmod>
   </url>
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/posts/places_visit/index.html</loc>
-    <lastmod>2022-09-18T18:00:37.337Z</lastmod>
+    <lastmod>2022-09-19T18:27:25.020Z</lastmod>
   </url>
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/posts/sample-test/index.html</loc>
-    <lastmod>2022-09-18T18:00:38.045Z</lastmod>
+    <lastmod>2022-09-19T18:27:25.708Z</lastmod>
+  </url>
+  <url>
+    <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/posts/pytorch-transforms/index.html</loc>
+    <lastmod>2022-09-19T18:27:28.396Z</lastmod>
   </url>
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/posts/pytorch-dataloaders/index.html</loc>
-    <lastmod>2022-09-18T18:00:40.777Z</lastmod>
+    <lastmod>2022-09-19T18:27:28.584Z</lastmod>
   </url>
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/about.html</loc>
-    <lastmod>2022-09-18T18:00:40.965Z</lastmod>
+    <lastmod>2022-09-19T18:27:28.728Z</lastmod>
   </url>
   <url>
     <loc>https://boi-doingthings.github.io/chittha-jaalprashtha/index.html</loc>
-    <lastmod>2022-09-18T18:00:41.873Z</lastmod>
+    <lastmod>2022-09-19T18:27:29.572Z</lastmod>
   </url>
 </urlset>

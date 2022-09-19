@@ -3,8 +3,9 @@
     "listing": "/index.html",
     "items": [
       "/posts/sample-test/index.html",
-      "/posts/pytorch-dataloaders/index.html",
+      "/posts/pytorch-transforms/index.html",
       "/posts/pytorch-part1/index.html",
+      "/posts/pytorch-dataloaders/index.html",
       "/posts/places_visit/index.html"
     ]
   }

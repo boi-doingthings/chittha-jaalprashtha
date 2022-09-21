@@ -84,6 +84,13 @@
     "text": "9 References"
   },
   {
+    "objectID": "posts/pytorch-object-detection/index.html",
+    "href": "posts/pytorch-object-detection/index.html",
+    "title": "Object Detection",
+    "section": "",
+    "text": "Create Dataset\nThe tutorial uses the PenFudan Pedestrian dataset with the aim of training an instance segmentation model on a custom dataset.\n\nimport torch\nimport torchvision\nfrom pathlib import Path\n\n\nbase_data = Path('/home/boi-doingthings/Documents/datasets/PennFudanPed')\n\n\nimport os\nfor root, dirs, files in os.walk(base_data):\n        for d in dirs:\n            print(os.path.join(base_data, d)    )\n        # for f in files[:5]:\n        #     print(os.path.join(base_data,d, f))\n\n/home/boi-doingthings/Documents/datasets/PennFudanPed/PNGImages\n/home/boi-doingthings/Documents/datasets/PennFudanPed/Annotation\n/home/boi-doingthings/Documents/datasets/PennFudanPed/PedMasks\n\n\n\nfrom PIL import Image\n\nclass PFP_dataset(torch.utils.data.Dataset):\n    def __init__(self,base_path,transforms):\n        self.base_path = base_path\n        self.transforms=transforms\n        self.imgs_list=list(sorted(os.listdir(base_path/\"PNGImages/\")))\n        self.mask_list=list(sorted(os.listdir(base_path/\"PedMasks/\")))                                  \n        \n    def __getitems__(self,idx):\n        # img = os\n        mask = self.mask_list[idx]\n        img = Image.open(img_path).convert(\"RGB\")    \n        \n\n    # def __len\n\n\na = PFP_dataset(base_data,None)\n\n\na.imgs_list[:5]\n\n['FudanPed00001.png',\n 'FudanPed00002.png',\n 'FudanPed00003.png',\n 'FudanPed00004.png',\n 'FudanPed00005.png']"
+  },
+  {
     "objectID": "posts/pytorch-transforms/index.html",
     "href": "posts/pytorch-transforms/index.html",
     "title": "Hands-on with Transforms",
@@ -144,6 +151,6 @@
     "href": "index.html",
     "title": "Boi-DoingThings Blog",
     "section": "",
-    "text": "Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\nBoi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\nBoi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject Detection\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own fine-tuned models\n\n\n\n\n\n\nSep 21, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
   }
 ]

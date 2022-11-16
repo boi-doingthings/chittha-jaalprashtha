@@ -56,6 +56,13 @@
     "text": "Clothing\n\nA hand towel\nA extra pair of socks and innerwear."
   },
   {
+    "objectID": "posts/my-travel-bag/index.html",
+    "href": "posts/my-travel-bag/index.html",
+    "title": "My Travel Bag",
+    "section": "",
+    "text": "A extra pair of socks and undergarments.\nSet of decathalon microfiber towels. (S+L)\n\nSnickers\nEnergy Bars from The Whole Truth or Happillo\n\n\n\n\n\nParacetamol\nRedall\nFluCold\n\n\n\n\n\nSmall packets of coffee,tea,sugar and powder milk\nA mini tailer set\nA todo sticky note pad\nA multicolor pen\nA Swiss Knife (I recommend the Handyman)"
+  },
+  {
     "objectID": "posts/places_visit/index.html",
     "href": "posts/places_visit/index.html",
     "title": "My Travels",
@@ -200,6 +207,6 @@
     "href": "index.html",
     "title": "Boi-DoingThings Blog",
     "section": "",
-    "text": "Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\nBoi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTravel Hacks\n\n\n\n\n\n\n\ntravel\n\n\n\n\nSome key pointers I have learnt travelling so far.\n\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject Detection\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own fine-tuned models\n\n\n\n\n\n\nSep 21, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\nBoi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travel Bag\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nNov 17, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTravel Hacks\n\n\n\n\n\n\n\ntravel\n\n\n\n\nSome key pointers I have learnt travelling so far.\n\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject Detection\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own fine-tuned models\n\n\n\n\n\n\nSep 21, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
   }
 ]

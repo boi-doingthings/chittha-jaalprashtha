@@ -70,69 +70,6 @@
     "text": "I am an avid traveller and is always up for the next trip with my friends.\n\n\n\n\n\n\nKurukshetra\n\nNational Institute of Technology\nBrahma Sarovar\nJyotisar\nKrishna Museum\nPanorama & Science Centre\nSheikh Chili Masoleum\nKalpana Chawla Memorial Planetorium\nKurukshetra University\n\nKarnal\nAmbala\nPanchkula\nPanipat\n\n\n\n\n\nSolan -> Kasauli\n\nMonkey Point\nGilbert Trail\nMonkey (Manki) Point\nMall Road\n\nShimla\n\nNarkanda -> Hatu Peak -> Hatu Mata Temple\nNarkanda -> Tannu Jubar Lake\nMall Road\n\nKullu\n\nKasol\nBhuntar\nManikaran Sahib and Hot Springs\nTosh\nParvati Valley\nChalal\n\nKangra -> Dharamshala\n\nTriund\nMoon Peak\nMcLeodganj\nBhagsunag Falls\n\n\n\n\n\n\nJaipur\nUdaipur\nKota\n\n\n\n\n\nNorth Goa\n\nBeaches\n\nArambol\nBaga\nCalangute\nCandolim\n\n\nSouth Goa\n\nBeaches\n\nPalolem (Fav)\nAgonda\nMorjim\n\n\n\n\n\n\n\nMumbai\n\nMarine Drive\nGateway of India\nDalal Street\nBandra-Worli Sealink\nBandra\nCST\nNariman Point\nTravel in Mumbai Local\n\nPune\nLonavala\n\n\n\n\n\nTirupati\n\nSri Venkateshwara Temple (Balaji)\n\n\n\n\n\n\nMathura\n\nEverywhere :)\n\nAgra\n\nTaj Mahal\nAgra Fort\nAkbar Tomb\n\n\n\n\n\n\nIndore\n\n56 Food Street\nSarafa Bazar (Over-Rated)\nRalamandal Wildlife Sanctuary\n\nUjjain\n\nMahakaleshwar Jyotirlinga\nBhairo Baba Temple\n\n\n\n\n\n\nAlmost Everywhere :)\n\n\n\n\n\nUttar Kannada\n\nGokarna\n\nOm Beach\nKudle Beach\nMahabaleshwar Temple\n\nBhatkal\n\nMurudeshwar Temple\n\n\nBengaluru\n\nTraffic :|\nIndian Institute of Science (IISc)\nCubbon Park\nVisvesvaraya Industrial & Technological Museum\nLal Bagh Botanical Garden\nCity Market"
   },
   {
-    "objectID": "posts/sample-test/index.html",
-    "href": "posts/sample-test/index.html",
-    "title": "Quarto Document",
-    "section": "",
-    "text": "Red\nGreen\nBlue"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#shapes",
-    "href": "posts/sample-test/index.html#shapes",
-    "title": "Quarto Document",
-    "section": "2 Shapes",
-    "text": "2 Shapes\n\nSquare\nCircle\nTriangle"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#textures",
-    "href": "posts/sample-test/index.html#textures",
-    "title": "Quarto Document",
-    "section": "3 Textures",
-    "text": "3 Textures\n\nSmooth\nBumpy\nFuzzy"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#overview",
-    "href": "posts/sample-test/index.html#overview",
-    "title": "Quarto Document",
-    "section": "4 Overview",
-    "text": "4 Overview\nKnuth says always be literate [@knuth1984].\n\n\nCode\n1 + 1\n\n\n2"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#overview1",
-    "href": "posts/sample-test/index.html#overview1",
-    "title": "Quarto Document",
-    "section": "5 Overview1",
-    "text": "5 Overview1\nSee Figure 1 in Section 6 for a demonstration of a simple plot.\nSee Equation 1 to better understand standard deviation."
-  },
-  {
-    "objectID": "posts/sample-test/index.html#sec-plot",
-    "href": "posts/sample-test/index.html#sec-plot",
-    "title": "Quarto Document",
-    "section": "6 Plot",
-    "text": "6 Plot\n\n\nCode\nimport matplotlib.pyplot as plt\nplt.plot([1,23,2,4])\nplt.show()\n\n\n\n\n\nFigure 1: Simple Plot"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#sec-equation",
-    "href": "posts/sample-test/index.html#sec-equation",
-    "title": "Quarto Document",
-    "section": "7 Equation",
-    "text": "7 Equation\n\ns = \\sqrt{\\frac{1}{N-1} \\sum_{i=1}^N (x_i - \\overline{x})^2}\n\\tag{1}"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#placing-colorbars",
-    "href": "posts/sample-test/index.html#placing-colorbars",
-    "title": "Quarto Document",
-    "section": "8 Placing Colorbars",
-    "text": "8 Placing Colorbars\nColorbars indicate the quantitative extent of image data. Placing in a figure is non-trivial because room needs to be made for them. The simplest case is just attaching a colorbar to each axes:1.\n\n\nCode\nimport matplotlib.pyplot as plt\nimport numpy as np\n\nfig, axs = plt.subplots(2, 2)\nfig.set_size_inches(20, 8)\ncmaps = ['RdBu_r', 'viridis']\nfor col in range(2):\n    for row in range(2):\n        ax = axs[row, col]\n        pcm = ax.pcolormesh(\n          np.random.random((20, 20)) * (col + 1),\n          cmap=cmaps[col]\n        )\n        fig.colorbar(pcm, ax=ax)\nplt.show()"
-  },
-  {
-    "objectID": "posts/sample-test/index.html#references",
-    "href": "posts/sample-test/index.html#references",
-    "title": "Quarto Document",
-    "section": "9 References",
-    "text": "9 References"
-  },
-  {
     "objectID": "posts/pytorch-object-detection/index.html",
     "href": "posts/pytorch-object-detection/index.html",
     "title": "Object Detection",
@@ -207,6 +144,6 @@
     "href": "index.html",
     "title": "Boi-DoingThings Blog",
     "section": "",
-    "text": "Quarto Document\n\n\n\n\n\n\n\n\n\n\n\n\nBoi\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travel Bag\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA few of the essentials I carry on travels.\n\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTravel Hacks\n\n\n\n\n\n\n\ntravel\n\n\n\n\nSome key pointers I have learnt travelling so far.\n\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nObject Detection\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own fine-tuned models\n\n\n\n\n\n\nSep 21, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
+    "text": "My Travel Bag\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA few of the essentials I carry on travels.\n\n\n\n\n\n\nDec 26, 2022\n\n\n\n\n\n\n\n\nTravel Hacks\n\n\n\n\n\n\n\ntravel\n\n\n\n\nSome key pointers I have learnt travelling so far.\n\n\n\n\n\n\nOct 3, 2022\n\n\n\n\n\n\n\n\nObject Detection\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own fine-tuned models\n\n\n\n\n\n\nSep 21, 2022\n\n\n\n\n\n\n\n\nHands-on with Transforms\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nApply transforms on our own datasets\n\n\n\n\n\n\nSep 19, 2022\n\n\n\n\n\n\n\n\nPyTorch Notes-I\n\n\n\n\n\n\n\njupyter\n\n\npytorch\n\n\n\n\nHands-on learning Pytorch from Pytorch Documentation\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\nHands-on with DataLoaders\n\n\n\n\n\n\n\npytorch\n\n\njupyter\n\n\n\n\nCreate our own dataloaders\n\n\n\n\n\n\nSep 18, 2022\n\n\n\n\n\n\n\n\nMy Travels\n\n\n\n\n\n\n\ntravel\n\n\n\n\nA list of places I have been.\n\n\n\n\n\n\nSep 17, 2022\n\n\n\n\n\n\nNo matching items"
   }
 ]

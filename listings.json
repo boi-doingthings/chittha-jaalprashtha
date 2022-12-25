@@ -2,7 +2,6 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/sample-test/index.html",
       "/posts/my-travel-bag/index.html",
       "/posts/travel-hacks/index.html",
       "/posts/pytorch-object-detection/index.html",

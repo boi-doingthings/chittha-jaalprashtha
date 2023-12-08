@@ -2,14 +2,10 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/vietnam-trip/index.html",
-      "/posts/my-travel-bag/index.html",
-      "/posts/travel-hacks/index.html",
-      "/posts/pytorch-object-detection/index.html",
-      "/posts/pytorch-transforms/index.html",
-      "/posts/pytorch-part1/index.html",
-      "/posts/pytorch-dataloaders/index.html",
-      "/posts/places_visit/index.html"
+      "/posts/sample-test/index.html",
+      "/posts/my-diet-plan/index.html",
+      "/posts/post-with-code/index.html",
+      "/posts/welcome/index.html"
     ]
   }
 ]

@@ -1,1 +1,1 @@
-Sitemap: https://boi-doingthings.github.io/chittha-jaalprashtha/sitemap.xml
+Sitemap: https://github.com/boi-doingthings/chittha-jaalprashtha/sitemap.xml
